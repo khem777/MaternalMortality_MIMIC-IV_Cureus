@@ -23,8 +23,8 @@
 --        (renal-insufficiency criterion of preeclampsia with severe features,
 --         ACOG Practice Bulletin 222)
 -- AKI onset = first time t that meets the definition, searched from
--- admittime - 24 h to dischtime.  The thresholds are parameters (Step 0) and
--- must be confirmed by the clinical co-author before the final run.
+-- admittime - 24 h to dischtime.  The thresholds are parameters (Step 0); they
+-- were confirmed on clinical grounds on 2026-11-03.
 --
 -- Requires: mimiciv.predictors_24h_v2, mimiciv.smm_hits_v2,
 --           mimiciv.smm_code_patterns_v2 (scripts 04_labels and 05_predictors).
