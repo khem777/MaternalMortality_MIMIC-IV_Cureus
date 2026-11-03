@@ -31,6 +31,12 @@
 -- Creates new objects only (*_v3).  Count queries return aggregates only.
 -- ============================================================================
 
+-- Session setting: run without parallel workers. PostgreSQL in Docker has only
+-- 64 MB of shared memory (/dev/shm) by default and parallel scans of labevents
+-- fail with "could not resize shared memory segment ... No space left on device".
+-- (Permanent fix: shm_size in docker-compose.yml.)  Only affects this session.
+SET max_parallel_workers_per_gather = 0;
+
 -- ----------------------------------------------------------------------------
 -- Step 0 -- parameters
 -- ----------------------------------------------------------------------------
