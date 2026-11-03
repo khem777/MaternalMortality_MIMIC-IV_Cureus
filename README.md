@@ -51,6 +51,7 @@ notebooks/
   06_smm_renal_only_sensitivity.ipynb            Sensitivity without admissions whose only SMM indicator is acute renal failure
   07_smm_timing_vs_prediction_time.ipynb         Counts: timing of procedure-based SMM indicators relative to the 24-h prediction point
   08_landmark_incident_smm.ipynb                 Landmark and incident-SMM analyses (SMM already present at 24 h removed)
+  09_temporal_validation_smm.ipynb               Temporal validation: develop before a cut year (2017; 2015 sensitivity), test once after it
 libraries/
   database.py                Connection (environment variables) and query functions
   functions.py               Small statistics helper

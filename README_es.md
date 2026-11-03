@@ -53,6 +53,7 @@ notebooks/
   06_smm_renal_only_sensitivity.ipynb            Sensibilidad sin las admisiones cuyo único indicador de SMM es la insuficiencia renal aguda
   07_smm_timing_vs_prediction_time.ipynb         Conteos: momento de los indicadores de SMM basados en procedimientos respecto del punto de predicción de 24 h
   08_landmark_incident_smm.ipynb                 Análisis landmark y de SMM incidente (se excluye la SMM ya presente a las 24 h)
+  09_temporal_validation_smm.ipynb               Validación temporal: desarrollo antes de un año de corte (2017; 2015 como sensibilidad), prueba única después
 libraries/
   database.py                Conexión (variables de entorno) y funciones de consulta
   functions.py               Pequeña utilidad estadística
