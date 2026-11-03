@@ -1,0 +1,29 @@
+group_code,group_label_en,group_label_es,is_obstetric,include_in_model,display_order
+GDG_M01,Labor and delivery complications,Complicaciones del trabajo de parto y el parto,True,True,1
+GDG_M02,Pre-existing condition complicating pregnancy,Comorbilidad preexistente que complica el embarazo,True,True,2
+GDG_M03,Hypertensive disorders of pregnancy (pre-eclampsia/eclampsia),Trastornos hipertensivos (preeclampsia/eclampsia),True,True,3
+GDG_M04,"Other pregnancy-related maternal disorders (edema, nutrition, renal, other findings)","Otros trastornos maternos relacionados con el embarazo (edema, nutricion, renal, hallazgos, etc.)",True,True,4
+GDG_M05,Fetal complications / multiple gestation,Complicaciones fetales / gestacion multiple,True,True,5
+GDG_M06,Other puerperal complications,Otras complicaciones del puerperio,True,True,6
+GDG_M07,Placental / amniotic fluid disorders,Trastornos placentarios / liquido amniotico,True,True,7
+GDG_M08,Hemorrhage (antepartum/postpartum),Hemorragia (anteparto/posparto),True,True,8
+GDG_M09,Infection (obstetric/puerperal),Infeccion (obstetrica/puerperal),True,True,9
+GDG_M10,Preterm labor / premature rupture of membranes,Parto pretermino / ruptura prematura de membranas,True,True,10
+GDG_M11,Abortion / ectopic or molar pregnancy,Aborto / embarazo ectopico o molar,True,True,11
+GDG_M12,Venous / thromboembolic disorders,Trastornos venosos / tromboembolicos,True,True,12
+GDG_M13,Neoplasms,Neoplasias,False,True,13
+GDG_M14,Digestive diseases,Enfermedades digestivas,False,True,14
+GDG_M15,Endocrine / metabolic / nutritional disorders,Endocrino / metabolico / nutricional,False,True,15
+GDG_M16,Cardiovascular diseases,Enfermedades cardiovasculares,False,True,16
+GDG_M17,Nervous system disorders,Sistema nervioso,False,True,17
+GDG_M18,Blood / immune system diseases,Enfermedades de la sangre / sistema inmune,False,True,18
+GDG_M19,Genitourinary diseases (non-obstetric),Enfermedades genitourinarias (no obstetricas),False,True,19
+GDG_M20,Respiratory diseases,Enfermedades respiratorias,False,True,20
+GDG_M21,Administrative factors / contact with health services (non-obstetric),Factores administrativos / contacto con servicios de salud,False,True,21
+GDG_M22,"Symptoms, signs and ill-defined findings",Sintomas / signos / hallazgos no especificos,False,True,22
+GDG_M23,Infectious and parasitic diseases,Enfermedades infecciosas y parasitarias,False,True,23
+GDG_M24,"Injury, poisoning and external causes",Traumatismos / envenenamientos / causas externas,False,True,24
+GDG_M25,Other minor comorbidities with no mortality signal,Otras comorbilidades menores sin senal de mortalidad,False,True,25
+GDG_M26,Mental and behavioral disorders,Trastornos mentales / conductuales,False,True,26
+GDG_M27,"Residual cluster 1 (k-means, Section 2.3 -- pending)","Cluster residual 1 (k-means, Seccion 2.3 -- pendiente)",True,True,27
+GDG_M28,"Residual cluster 2 (k-means, Section 2.3 -- pending)","Cluster residual 2 (k-means, Seccion 2.3 -- pendiente)",True,True,28

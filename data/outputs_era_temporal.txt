@@ -1,0 +1,156 @@
+==============================================================================================================
+ERA / TEMPORAL SENSITIVITY: SMM, eligible deliveries, n=19383, patients=13710, events=445, prevalence=0.0230
+outer 5x3, inner 3, bootstrap B=300 (groups, temporal) / 1000 (paired refits), QUICK=False
+==============================================================================================================
+
+[0] Eligible deliveries by anchor-year group and by ICD coding version (aggregate counts)
+      group          variable   adm  patients  events   prev
+2008 - 2010 anchor_year_group  8212      5536     121 0.0147
+2011 - 2013 anchor_year_group  4328      2977      86 0.0199
+2014 - 2016 anchor_year_group  3569      2507     104 0.0291
+2017 - 2019 anchor_year_group  2343      1813      81 0.0346
+2020 - 2022 anchor_year_group   931       877      53 0.0569
+ICD-10 only        ICD coding  8864      7070     271 0.0306
+ ICD-9 only        ICD coding 10519      8285     174 0.0165
+
+    Admissions by anchor-year group (rows) and ICD coding version (columns)
+icd_ver      ICD-10 only  ICD-9 only
+era                                 
+2008 - 2010         1529        6683
+2011 - 2013         1510        2818
+2014 - 2016         2552        1017
+2017 - 2019         2342           1
+2020 - 2022          931           0
+
+[1] Cross-validated performance by group (out-of-fold predictions of the main analysis; patients are in the same folds as notebooks 02/04)
+    O/E and slope come from probabilities calibrated on the whole development sample, so O/E far from 1 in one group means a calibration shift between groups.
+                  group model   adm  patients  events   prev               AUROC               AUPRC              O/E            slope
+All eligible deliveries    LR 19383     13710     445 0.0230 0.780 (0.755-0.804) 0.154 (0.123-0.194) 1.00 (0.91-1.09) 0.99 (0.92-1.07)
+All eligible deliveries   XGB 19383     13710     445 0.0230 0.791 (0.765-0.816) 0.163 (0.134-0.202) 1.00 (0.92-1.09) 1.02 (0.95-1.10)
+All eligible deliveries Stack 19383     13710     445 0.0230 0.789 (0.765-0.814) 0.167 (0.136-0.206) 1.00 (0.91-1.09) 1.01 (0.93-1.09)
+        era 2008 - 2010    LR  8212      5536     121 0.0147 0.765 (0.716-0.811) 0.127 (0.071-0.199) 0.69 (0.55-0.83) 0.94 (0.81-1.07)
+        era 2008 - 2010   XGB  8212      5536     121 0.0147 0.789 (0.749-0.833) 0.134 (0.080-0.197) 0.69 (0.56-0.83) 1.00 (0.89-1.12)
+        era 2008 - 2010 Stack  8212      5536     121 0.0147 0.778 (0.735-0.824) 0.133 (0.078-0.197) 0.69 (0.56-0.84) 0.97 (0.86-1.09)
+        era 2011 - 2013    LR  4328      2977      86 0.0199 0.765 (0.713-0.825) 0.152 (0.103-0.255) 0.92 (0.75-1.13) 0.97 (0.79-1.19)
+        era 2011 - 2013   XGB  4328      2977      86 0.0199 0.766 (0.706-0.827) 0.150 (0.100-0.252) 0.90 (0.74-1.11) 0.95 (0.76-1.15)
+        era 2011 - 2013 Stack  4328      2977      86 0.0199 0.762 (0.701-0.824) 0.149 (0.098-0.251) 0.90 (0.74-1.11) 0.94 (0.76-1.12)
+        era 2014 - 2016    LR  3569      2507     104 0.0291 0.778 (0.726-0.825) 0.151 (0.106-0.221) 1.19 (0.98-1.43) 0.97 (0.82-1.13)
+        era 2014 - 2016   XGB  3569      2507     104 0.0291 0.796 (0.738-0.846) 0.183 (0.125-0.258) 1.19 (0.98-1.42) 1.02 (0.87-1.19)
+        era 2014 - 2016 Stack  3569      2507     104 0.0291 0.800 (0.745-0.847) 0.189 (0.130-0.272) 1.18 (0.97-1.40) 1.01 (0.88-1.17)
+        era 2017 - 2019    LR  2343      1813      81 0.0346 0.799 (0.745-0.851) 0.248 (0.161-0.352) 1.33 (1.05-1.60) 1.17 (0.95-1.40)
+        era 2017 - 2019   XGB  2343      1813      81 0.0346 0.806 (0.751-0.859) 0.260 (0.174-0.371) 1.35 (1.07-1.63) 1.17 (0.95-1.40)
+        era 2017 - 2019 Stack  2343      1813      81 0.0346 0.803 (0.747-0.858) 0.289 (0.187-0.402) 1.33 (1.06-1.61) 1.17 (0.95-1.42)
+        era 2020 - 2022    LR   931       877      53 0.0569 0.742 (0.669-0.807) 0.275 (0.166-0.388) 1.88 (1.44-2.34) 0.89 (0.64-1.14)
+        era 2020 - 2022   XGB   931       877      53 0.0569 0.749 (0.678-0.815) 0.259 (0.159-0.380) 2.00 (1.54-2.45) 0.91 (0.67-1.19)
+        era 2020 - 2022 Stack   931       877      53 0.0569 0.750 (0.673-0.813) 0.278 (0.174-0.409) 1.95 (1.50-2.40) 0.91 (0.66-1.19)
+ ICD coding: ICD-9 only    LR 10519      8285     174 0.0165 0.771 (0.729-0.810) 0.131 (0.092-0.187) 0.81 (0.69-0.93) 0.97 (0.86-1.09)
+ ICD coding: ICD-9 only   XGB 10519      8285     174 0.0165 0.785 (0.746-0.826) 0.140 (0.099-0.196) 0.80 (0.68-0.92) 1.00 (0.90-1.12)
+ ICD coding: ICD-9 only Stack 10519      8285     174 0.0165 0.780 (0.739-0.821) 0.138 (0.096-0.195) 0.80 (0.68-0.92) 0.97 (0.88-1.09)
+ICD coding: ICD-10 only    LR  8864      7070     271 0.0306 0.773 (0.743-0.802) 0.183 (0.143-0.235) 1.17 (1.05-1.31) 0.99 (0.89-1.10)
+ICD coding: ICD-10 only   XGB  8864      7070     271 0.0306 0.784 (0.752-0.814) 0.191 (0.154-0.247) 1.19 (1.06-1.33) 1.02 (0.92-1.13)
+ICD coding: ICD-10 only Stack  8864      7070     271 0.0306 0.784 (0.751-0.812) 0.203 (0.163-0.262) 1.18 (1.06-1.32) 1.02 (0.92-1.13)
+
+[2] Temporal validation (rolling origin) and ICD-9 -> ICD-10 transition: models fitted only on the earlier block, scored on the later one
+    Patients with admissions in the later block are removed from the earlier block. Each model is tuned, stacked and recalibrated inside the earlier block only.
+                                              design train adm/pat/events test adm/pat/events model               AUROC               AUPRC              O/E            slope              CITL CV AUROC, same block
+        rolling: train 2008-2010 -> test 2011 - 2013        8212/5536/121        4328/2977/86    LR 0.759 (0.706-0.807) 0.108 (0.070-0.201) 1.37 (1.11-1.68) 0.95 (0.77-1.14)  0.34 (0.11-0.56)                0.765
+        rolling: train 2008-2010 -> test 2011 - 2013        8212/5536/121        4328/2977/86   XGB 0.754 (0.698-0.808) 0.102 (0.071-0.174) 1.35 (1.09-1.65) 0.87 (0.72-1.07)  0.33 (0.09-0.54)                0.766
+        rolling: train 2008-2010 -> test 2011 - 2013        8212/5536/121        4328/2977/86 Stack 0.762 (0.705-0.813) 0.106 (0.073-0.181) 1.34 (1.07-1.63) 0.92 (0.76-1.12)  0.31 (0.07-0.52)                0.762
+        rolling: train 2008-2013 -> test 2014 - 2016       12540/8513/207       3569/2507/104    LR 0.782 (0.729-0.825) 0.141 (0.100-0.206) 1.55 (1.25-1.86) 1.03 (0.87-1.20)  0.47 (0.24-0.67)                0.778
+        rolling: train 2008-2013 -> test 2014 - 2016       12540/8513/207       3569/2507/104   XGB 0.798 (0.740-0.841) 0.155 (0.109-0.221) 1.54 (1.25-1.84) 1.05 (0.89-1.22)  0.47 (0.24-0.67)                0.796
+        rolling: train 2008-2013 -> test 2014 - 2016       12540/8513/207       3569/2507/104 Stack 0.807 (0.754-0.848) 0.169 (0.121-0.238) 1.51 (1.22-1.80) 1.08 (0.93-1.25)  0.45 (0.22-0.65)                0.800
+        rolling: train 2008-2016 -> test 2017 - 2019      16109/11020/311        2343/1813/81    LR 0.803 (0.759-0.856) 0.240 (0.150-0.344) 1.49 (1.20-1.80) 1.12 (0.92-1.37)  0.44 (0.20-0.66)                0.799
+        rolling: train 2008-2016 -> test 2017 - 2019      16109/11020/311        2343/1813/81   XGB 0.796 (0.741-0.854) 0.274 (0.184-0.378) 1.55 (1.24-1.88) 1.19 (0.99-1.43)  0.48 (0.23-0.70)                0.806
+        rolling: train 2008-2016 -> test 2017 - 2019      16109/11020/311        2343/1813/81 Stack 0.801 (0.745-0.858) 0.295 (0.201-0.406) 1.47 (1.18-1.77) 1.14 (0.94-1.44)  0.42 (0.18-0.64)                0.803
+        rolling: train 2008-2019 -> test 2020 - 2022      18452/12833/392          931/877/53    LR 0.739 (0.661-0.816) 0.262 (0.147-0.381) 2.07 (1.52-2.62) 0.88 (0.62-1.16)  0.83 (0.47-1.11)                0.742
+        rolling: train 2008-2019 -> test 2020 - 2022      18452/12833/392          931/877/53   XGB 0.763 (0.696-0.832) 0.261 (0.156-0.379) 2.16 (1.59-2.77) 0.91 (0.67-1.18)  0.88 (0.53-1.18)                0.749
+        rolling: train 2008-2019 -> test 2020 - 2022      18452/12833/392          931/877/53 Stack 0.760 (0.694-0.829) 0.274 (0.161-0.396) 2.12 (1.57-2.69) 0.91 (0.67-1.20)  0.86 (0.51-1.16)                0.750
+ICD transition: train ICD-9-only -> test ICD-10-only        8507/6640/154       8864/7070/271    LR 0.765 (0.736-0.794) 0.138 (0.109-0.185) 1.15 (1.00-1.29) 0.80 (0.70-0.90) 0.16 (-0.00-0.29)                0.773
+ICD transition: train ICD-9-only -> test ICD-10-only        8507/6640/154       8864/7070/271   XGB 0.777 (0.746-0.807) 0.144 (0.115-0.180) 1.30 (1.13-1.46) 0.89 (0.77-0.99)  0.29 (0.13-0.42)                0.784
+ICD transition: train ICD-9-only -> test ICD-10-only        8507/6640/154       8864/7070/271 Stack 0.775 (0.745-0.805) 0.150 (0.116-0.194) 1.22 (1.05-1.36) 0.84 (0.73-0.95)  0.22 (0.06-0.35)                0.784
+
+    Paired difference Stack - LR in the later block (95% patient-level cluster-bootstrap interval)
+                                              design            AUROC diff            AUPRC diff
+        rolling: train 2008-2010 -> test 2011 - 2013 +0.003 (-0.017-0.023) -0.003 (-0.034-0.024)
+        rolling: train 2008-2013 -> test 2014 - 2016  +0.024 (0.009-0.036)  +0.028 (0.006-0.053)
+        rolling: train 2008-2016 -> test 2017 - 2019 -0.002 (-0.020-0.016)  +0.055 (0.004-0.105)
+        rolling: train 2008-2019 -> test 2020 - 2022  +0.021 (0.003-0.040) +0.012 (-0.015-0.039)
+ICD transition: train ICD-9-only -> test ICD-10-only  +0.010 (0.005-0.015)  +0.012 (0.002-0.024)
+
+[3] Refits without the administrative variables that can reflect the era, and with the era added as a diagnostic
+main          : numeric ['age_at_admission', 'hemoglobin', 'creatinine'] binary ['creatinine_missing'] categorical ['ethnicity', 'insurance', 'language', 'admission_type', 'admission_location']
+no_admin_vars : numeric ['age_at_admission', 'hemoglobin', 'creatinine'] binary ['creatinine_missing'] categorical []
+plus_era      : numeric ['age_at_admission', 'hemoglobin', 'creatinine'] binary ['creatinine_missing'] categorical ['ethnicity', 'insurance', 'language', 'admission_type', 'admission_location', 'era']
+
+    AUROC (paired, 95% patient-level cluster-bootstrap intervals for the differences)
+model auroc main no_admin_vars diff (no_admin_vars - main) plus_era diff (plus_era - main)
+   LR      0.780         0.762      -0.018 (-0.030--0.007)    0.792   +0.013 (0.003-0.021)
+   RF      0.777         0.768       -0.009 (-0.024-0.006)    0.792   +0.015 (0.007-0.025)
+   ET      0.770         0.766       -0.004 (-0.019-0.011)    0.787   +0.016 (0.005-0.027)
+  XGB      0.791         0.773      -0.018 (-0.028--0.008)    0.802   +0.011 (0.002-0.021)
+Stack      0.789         0.773      -0.016 (-0.026--0.004)    0.801   +0.012 (0.004-0.022)
+
+    AUPRC (paired, 95% patient-level cluster-bootstrap intervals for the differences)
+model auprc main no_admin_vars diff (no_admin_vars - main) plus_era diff (plus_era - main)
+   LR      0.154         0.137       -0.017 (-0.035-0.001)    0.169   +0.015 (0.006-0.023)
+   RF      0.158         0.144       -0.014 (-0.029-0.001)    0.166   +0.008 (0.001-0.016)
+   ET      0.151         0.146       -0.004 (-0.025-0.016)    0.161  +0.010 (-0.000-0.021)
+  XGB      0.163         0.138      -0.026 (-0.042--0.010)    0.179   +0.015 (0.007-0.024)
+Stack      0.167         0.145      -0.022 (-0.040--0.006)    0.183   +0.016 (0.008-0.024)
+
+    Calibration after recalibration (slope; observed/expected)
+model slope main O/E main slope no_admin_vars O/E no_admin_vars slope plus_era O/E plus_era
+   LR       0.99     1.00                0.98              1.00           1.00         1.00
+   RF       1.01     1.01                1.02              1.00           1.01         1.00
+   ET       1.00     1.00                0.99              1.00           1.01         1.00
+  XGB       1.02     1.00                1.01              1.00           1.03         1.00
+Stack       1.01     1.00                1.00              1.00           1.01         1.00
+
+    Hyperparameters selected in the inner loops, main (out of 15 outer fits per learner)
+learner             config  outer_fits
+     ET   depth=12,cw=None          12
+     ET    depth=8,cw=None           2
+     ET    depth=4,cw=None           1
+     LR      C=1.0,cw=None           7
+     LR      C=0.1,cw=None           6
+     LR C=0.01,cw=balanced           2
+     RF    depth=4,cw=None          11
+     RF    depth=8,cw=None           3
+     RF    depth=2,cw=None           1
+    XGB   depth=2,spw=sqrt           8
+    XGB      depth=1,spw=1           3
+    XGB      depth=2,spw=1           2
+    XGB   depth=1,spw=sqrt           2
+
+    Hyperparameters selected in the inner loops, no_admin_vars (out of 15 outer fits per learner)
+learner                        config  outer_fits
+     ET               depth=8,cw=None           6
+     ET              depth=12,cw=None           4
+     ET depth=4,cw=balanced_subsample           3
+     ET               depth=4,cw=None           2
+     LR                 C=0.1,cw=None          12
+     LR            C=0.01,cw=balanced           2
+     LR                 C=1.0,cw=None           1
+     RF               depth=4,cw=None          11
+     RF               depth=8,cw=None           3
+     RF               depth=2,cw=None           1
+    XGB              depth=2,spw=sqrt           5
+    XGB              depth=1,spw=sqrt           4
+    XGB                 depth=4,spw=1           3
+    XGB                 depth=1,spw=1           2
+    XGB                 depth=2,spw=1           1
+
+    Hyperparameters selected in the inner loops, plus_era (out of 15 outer fits per learner)
+learner           config  outer_fits
+     ET depth=12,cw=None          11
+     ET  depth=8,cw=None           3
+     ET  depth=4,cw=None           1
+     LR    C=0.1,cw=None           9
+     LR    C=1.0,cw=None           6
+     RF  depth=8,cw=None           8
+     RF  depth=4,cw=None           5
+     RF  depth=2,cw=None           2
+    XGB depth=2,spw=sqrt           8
+    XGB    depth=2,spw=1           3
+    XGB    depth=1,spw=1           3
+    XGB depth=1,spw=sqrt           1

@@ -1,0 +1,37 @@
+==============================================================================================================
+SMM admissions among eligible delivery hospitalizations: 445  (expected 445) [OK]
+T = admission time + 24 h; timing from the calendar date of each procedure-based SMM indicator (see the method table)
+==============================================================================================================
+
+[1] Category of every SMM admission (A to D); the last columns split by presence of a diagnosis-based indicator
+has_dx                                                     no diagnosis-based indicator  with a diagnosis-based indicator  total  % of SMM
+category                                                                                                                                  
+A. a procedure indicator certainly before T                                          23                                36     59      13.3
+B. none certainly before T, at least one ambiguous                                    6                                19     25       5.6
+C. procedure indicators, all certainly after T                                       14                                28     42       9.4
+D. no procedure indicator (diagnosis codes only; no time)                             0                               319    319      71.7
+    Sum of categories: 445  [OK]
+
+    Reading: at least 59 SMM admissions (13.3%) had a procedure indicator certainly before T; 25 more (5.6%) cannot be ordered;
+    42 (9.4%) have procedure indicators only after T; 319 (71.7%) rest on diagnosis codes alone and cannot be placed in time.
+
+[2] Procedure-based indicators: admissions by timing of the indicator (an admission can appear in several columns)
+timing                        before  ambiguous  after  admissions with the indicator
+indicator_name                                                                       
+Hysterectomy                      38         13     28                             79
+Ventilation                       27         12     21                             60
+Conversion of cardiac rhythm       0          3      3                              6
+
+==============================================================================================================
+CONSISTENCY CHECKS
+==============================================================================================================
+
+[3] Delivery hospitalizations not eligible at 24 h: 42 (expected 42), with SMM 2 (expected 2), with death 1 (expected 1)  [OK]
+
+[4] In-hospital deaths of the obstetric universe by timing relative to T
+                                           timing  admission_type  deaths
+                                    at or after T        delivery       3
+                                    at or after T other obstetric       2
+before T (stay ended before the prediction point)        delivery       1
+before T (stay ended before the prediction point) other obstetric       4
+    Deaths: 10 (expected 10); before T: 5 (expected 5)  [OK]

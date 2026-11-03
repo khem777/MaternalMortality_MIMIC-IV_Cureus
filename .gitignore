@@ -1,0 +1,45 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+.DS_Store
+*.log
+
+# Local secrets -- never commit real DB credentials
+.env
+
+# Local editor/tooling config -- not part of the published repository
+.obsidian/
+*.code-workspace
+
+# Local Postgres data volume (never contains anything to commit;
+# would also be enormous and may contain restricted MIMIC-IV data)
+postgres_data/
+mimic_csv/
+
+# Derived/output files written by the notebooks into data/ -- these are
+# patient-level-adjacent artifacts and must never be committed. Only the
+# aggregate reports data/outputs_*.txt are tracked.
+data/df*
+
+# Local secrets -- never commit real credentials (the template .env.example is tracked)
+.env.*
+!.env.example
+
+# Local backups of datasets (patient-level-adjacent): no spreadsheet or table
+# is tracked anywhere
+*.xlsx
+
+# Local-only copy of the earlier internal README (working notes)
+docs/README_working_notes_OLD.md
+
+# Manuscript, figures for the article and checklist: not part of the repository
+article/
+
+# Local-only folders: working documents and generated figures
+figures/
+/article
+
+# Aggregate text reports written to data/ by the notebooks (counts and metrics only) are PUBLISHED on purpose;
+# the notebooks never write identifiers or rows. Check each new outputs_*.txt before committing it.

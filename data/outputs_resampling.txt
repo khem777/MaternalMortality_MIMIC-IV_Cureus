@@ -1,0 +1,92 @@
+==============================================================================================================
+RESAMPLING COMPARISON: SMM, eligible deliveries, n=19383, events=445, prevalence=0.0230; outer 5x3, inner 3, bootstrap B=300, QUICK=False
+==============================================================================================================
+
+[S1] After recalibration (Platt): discrimination and calibration; 95% cluster-bootstrap intervals
+model                  strategy               auroc               auprc                     brier            slope  O/E
+   LR No weights, no resampling 0.780 (0.754-0.802) 0.155 (0.123-0.191) 0.02086 (0.01891-0.02280) 1.00 (0.91-1.08) 1.00
+   LR        Class weights only 0.781 (0.755-0.803) 0.149 (0.118-0.182) 0.02095 (0.01901-0.02290) 0.97 (0.88-1.04) 0.97
+   LR SMOTENC only (no weights) 0.757 (0.731-0.781) 0.142 (0.114-0.174) 0.02105 (0.01911-0.02305) 1.00 (0.90-1.08) 1.00
+   RF No weights, no resampling 0.777 (0.751-0.800) 0.158 (0.126-0.190) 0.02075 (0.01884-0.02266) 1.01 (0.93-1.08) 1.01
+   RF        Class weights only 0.780 (0.757-0.801) 0.136 (0.113-0.166) 0.02110 (0.01928-0.02297) 1.00 (0.92-1.08) 0.96
+   RF SMOTENC only (no weights) 0.773 (0.747-0.797) 0.135 (0.110-0.165) 0.02106 (0.01927-0.02295) 1.02 (0.93-1.09) 0.99
+   ET No weights, no resampling 0.770 (0.745-0.793) 0.151 (0.120-0.180) 0.02090 (0.01900-0.02276) 1.00 (0.92-1.07) 1.00
+   ET        Class weights only 0.768 (0.744-0.792) 0.129 (0.107-0.153) 0.02119 (0.01929-0.02307) 1.01 (0.92-1.08) 0.99
+   ET SMOTENC only (no weights) 0.759 (0.734-0.785) 0.152 (0.120-0.182) 0.02095 (0.01910-0.02289) 1.01 (0.92-1.08) 0.99
+  XGB No weights, no resampling 0.789 (0.764-0.811) 0.165 (0.133-0.199) 0.02074 (0.01884-0.02266) 1.02 (0.94-1.10) 1.00
+  XGB        Class weights only 0.792 (0.767-0.813) 0.164 (0.131-0.197) 0.02072 (0.01882-0.02266) 1.02 (0.93-1.09) 1.00
+  XGB SMOTENC only (no weights) 0.775 (0.752-0.798) 0.152 (0.122-0.187) 0.02086 (0.01897-0.02284) 1.06 (0.96-1.14) 0.99
+Stack No weights, no resampling 0.786 (0.760-0.807) 0.167 (0.133-0.202) 0.02067 (0.01876-0.02256) 1.01 (0.92-1.08) 1.00
+Stack        Class weights only 0.790 (0.765-0.811) 0.162 (0.131-0.197) 0.02074 (0.01883-0.02265) 1.00 (0.92-1.07) 0.98
+Stack SMOTENC only (no weights) 0.774 (0.748-0.798) 0.156 (0.126-0.190) 0.02080 (0.01895-0.02278) 1.03 (0.94-1.10) 0.99
+
+[S2] Before recalibration (raw probabilities of each algorithm); observed prevalence = 0.0230
+base learner                  strategy mean predicted risk observed/expected calibration slope auroc
+          LR No weights, no resampling              0.0229              1.00              1.00 0.779
+          LR        Class weights only              0.3820              0.06              1.06 0.782
+          LR SMOTENC only (no weights)              0.0798              0.29              1.08 0.757
+          RF No weights, no resampling              0.0229              1.00              1.43 0.772
+          RF        Class weights only              0.3837              0.06              1.54 0.780
+          RF SMOTENC only (no weights)              0.0836              0.27              1.58 0.769
+          ET No weights, no resampling              0.0229              1.00              1.19 0.769
+          ET        Class weights only              0.3969              0.06              1.43 0.764
+          ET SMOTENC only (no weights)              0.0860              0.27              1.92 0.761
+         XGB No weights, no resampling              0.0228              1.01              1.03 0.788
+         XGB        Class weights only              0.1072              0.21              1.04 0.793
+         XGB SMOTENC only (no weights)              0.0803              0.29              1.14 0.777
+
+[S3] Paired differences between strategies (same bootstrap samples)
+model comparison (first minus second)                  auroc                  auprc                        brier
+   LR           weighted - unweighted  +0.001 (-0.003-0.005) -0.006 (-0.012--0.000)   +0.00010 (0.00000-0.00017)
+   LR              smote - unweighted -0.023 (-0.034--0.012) -0.013 (-0.025--0.003)   +0.00019 (0.00003-0.00036)
+   LR                smote - weighted -0.024 (-0.035--0.013)  -0.007 (-0.019-0.006)  +0.00009 (-0.00009-0.00030)
+   RF           weighted - unweighted  +0.003 (-0.005-0.010) -0.022 (-0.046--0.003)   +0.00034 (0.00008-0.00065)
+   RF              smote - unweighted  -0.004 (-0.015-0.007) -0.023 (-0.037--0.008)   +0.00030 (0.00007-0.00054)
+   RF                smote - weighted -0.007 (-0.015--0.000)  -0.001 (-0.016-0.020)  -0.00004 (-0.00021-0.00011)
+   ET           weighted - unweighted  -0.002 (-0.006-0.002) -0.022 (-0.041--0.007)   +0.00030 (0.00015-0.00046)
+   ET              smote - unweighted -0.012 (-0.024--0.002)  +0.001 (-0.008-0.010)  +0.00005 (-0.00004-0.00014)
+   ET                smote - weighted -0.010 (-0.021--0.000)   +0.023 (0.007-0.045) -0.00024 (-0.00044--0.00006)
+  XGB           weighted - unweighted  +0.003 (-0.002-0.007)  -0.001 (-0.008-0.005)  -0.00002 (-0.00012-0.00008)
+  XGB              smote - unweighted -0.013 (-0.023--0.005) -0.013 (-0.023--0.004)  +0.00012 (-0.00003-0.00027)
+  XGB                smote - weighted -0.016 (-0.026--0.007) -0.012 (-0.021--0.001)   +0.00014 (0.00001-0.00029)
+Stack           weighted - unweighted   +0.004 (0.000-0.007)  -0.004 (-0.013-0.002)  +0.00006 (-0.00005-0.00017)
+Stack              smote - unweighted -0.012 (-0.023--0.002) -0.010 (-0.020--0.001)  +0.00013 (-0.00001-0.00027)
+Stack                smote - weighted -0.016 (-0.025--0.007)  -0.006 (-0.017-0.007)  +0.00007 (-0.00007-0.00022)
+
+[S4] Configurations selected in the inner loops (per learner, out of 15 outer fits)
+  -- No weights, no resampling
+learner           config  outer_fits
+     ET depth=12,cw=None          12
+     ET  depth=8,cw=None           2
+     ET  depth=4,cw=None           1
+     LR    C=0.1,cw=None           8
+     LR    C=1.0,cw=None           7
+     RF  depth=4,cw=None          11
+     RF  depth=8,cw=None           3
+     RF  depth=2,cw=None           1
+    XGB    depth=1,spw=1          10
+    XGB    depth=2,spw=1           4
+    XGB    depth=4,spw=1           1
+  -- Class weights only
+learner                         config  outer_fits
+     ET depth=12,cw=balanced_subsample           5
+     ET  depth=4,cw=balanced_subsample           5
+     ET  depth=8,cw=balanced_subsample           5
+     LR             C=0.01,cw=balanced          14
+     LR              C=0.1,cw=balanced           1
+     RF  depth=8,cw=balanced_subsample           8
+     RF  depth=4,cw=balanced_subsample           7
+    XGB               depth=2,spw=sqrt          12
+    XGB               depth=1,spw=sqrt           3
+  -- SMOTENC only (no weights)
+learner                    config  outer_fits
+     ET depth=4,cw=None,ratio=0.1          14
+     ET depth=8,cw=None,ratio=0.1           1
+     LR   C=0.1,cw=None,ratio=0.1           8
+     LR  C=0.01,cw=None,ratio=0.1           6
+     LR   C=1.0,cw=None,ratio=0.1           1
+     RF depth=4,cw=None,ratio=0.1          11
+     RF depth=8,cw=None,ratio=0.1           3
+     RF depth=2,cw=None,ratio=0.1           1
+    XGB   depth=1,spw=1,ratio=0.1          11
+    XGB   depth=2,spw=1,ratio=0.1           4

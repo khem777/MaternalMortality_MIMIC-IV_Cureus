@@ -1,0 +1,28 @@
+version: '3.9'
+services:
+  db_mimiciv:
+    image: postgres:13
+    restart: always
+    environment:
+      POSTGRES_USER: ${MIMICIV_DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${MIMICIV_DB_PASSWORD:?set MIMICIV_DB_PASSWORD in your .env file}
+      POSTGRES_DB: ${MIMICIV_DB_NAME:-mimiciv}
+    ports:
+      - "${MIMICIV_DB_PORT:-5433}:5432"
+    volumes:
+      # Host folder where PostgreSQL keeps its files (set MIMICIV_DATA_DIR in .env).
+      - ${MIMICIV_DATA_DIR:-./postgres_data}:/var/lib/postgresql/data
+      # Host folder with the uncompressed MIMIC-IV CSV files (subfolders hosp/ and icu/;
+      # set MIMICIV_CSV_DIR in .env). The load script reads them from /mimic_csv.
+      - ${MIMICIV_CSV_DIR:-./mimic_csv}:/mimic_csv:ro
+
+  jupyter:
+    image: jupyter/base-notebook:python-3.10
+    container_name: jupyter_python_maternal
+    ports:
+      - "8889:8888"
+    volumes:
+      - ./notebooks:/home/jovyan/work
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+    restart: unless-stopped

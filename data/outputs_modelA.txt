@@ -1,0 +1,10 @@
+Eligible deliveries: 19383 admissions, 13710 patients, deaths in the same admission = 3
+Eligible obstetric (any): 23625 admissions, 14602 patients, deaths in the same admission = 5
+
+Model A (in-hospital mortality, eligible deliveries; ASSUMED R2, no model trained): n=19383, events=3, prevalence=0.00015, candidate parameters P=32, EPP=0.09
+      R2_CS scenario  R2_CS max R2_CS n shrinkage n optimism n risk(+-0.05) n risk(+-0.01) n required events required  available n  available events max P supported (n,R2)
+15% of max (default) 0.0005    0.0030      635433     211800              0              6     635433              98        19383                 3                    1.0
+          30% of max 0.0009    0.0030      317637     211752              0              6     317637              49        19383                 3                    2.0
+          50% of max 0.0015    0.0030      190518     211688              0              6     211688              33        19383                 3                    3.3
+
+Rule of thumb for context: 10 events per candidate parameter would need 320 deaths; 3 are available.

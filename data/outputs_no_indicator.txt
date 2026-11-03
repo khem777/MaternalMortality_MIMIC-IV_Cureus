@@ -1,0 +1,61 @@
+==============================================================================================================
+CREATININE MISSINGNESS INDICATOR: SMM, eligible deliveries, n=19383, patients=13710, events=445, prevalence=0.0230
+outer 5x3, inner 3, paired bootstrap B=1000, QUICK=False
+with indicator   : numeric ['age_at_admission', 'hemoglobin', 'creatinine'] binary ['creatinine_missing'] categorical 5
+without indicator: numeric ['age_at_admission', 'hemoglobin', 'creatinine'] binary [] categorical 5
+==============================================================================================================
+
+[1] Discrimination and Brier score with and without the indicator (paired; 95% cluster-bootstrap intervals)
+model          auroc with       auroc without auroc diff (without-with)          auprc with       auprc without auprc diff (without-with)                brier with             brier without   brier diff (without-with)
+   LR 0.780 (0.754-0.802) 0.695 (0.663-0.725)    -0.085 (-0.109--0.059) 0.154 (0.125-0.195) 0.139 (0.109-0.180)    -0.016 (-0.027--0.004) 0.02087 (0.01900-0.02266) 0.02115 (0.01922-0.02305)  +0.00027 (0.00008-0.00047)
+   RF 0.777 (0.752-0.803) 0.754 (0.729-0.780)    -0.023 (-0.036--0.010) 0.158 (0.130-0.195) 0.147 (0.119-0.183)    -0.011 (-0.018--0.005) 0.02075 (0.01889-0.02249) 0.02097 (0.01908-0.02272)  +0.00022 (0.00013-0.00029)
+   ET 0.770 (0.744-0.796) 0.758 (0.732-0.783)    -0.012 (-0.024--0.001) 0.151 (0.124-0.187) 0.139 (0.115-0.172)    -0.011 (-0.020--0.003) 0.02090 (0.01903-0.02270) 0.02106 (0.01916-0.02285)  +0.00017 (0.00005-0.00029)
+  XGB 0.791 (0.767-0.814) 0.778 (0.753-0.803)    -0.013 (-0.024--0.002) 0.163 (0.134-0.204) 0.161 (0.132-0.202)     -0.002 (-0.009-0.004) 0.02073 (0.01887-0.02252) 0.02077 (0.01888-0.02255) +0.00004 (-0.00005-0.00014)
+Stack 0.789 (0.763-0.812) 0.776 (0.751-0.801)    -0.013 (-0.024--0.002) 0.167 (0.136-0.207) 0.164 (0.134-0.204)     -0.003 (-0.010-0.003) 0.02066 (0.01881-0.02243) 0.02070 (0.01883-0.02248) +0.00004 (-0.00006-0.00013)
+
+[2] Calibration after recalibration (slope; observed/expected)
+model slope with slope without O/E with O/E without
+   LR       0.99          0.99     1.00        1.00
+   RF       1.01          1.01     1.01        1.01
+   ET       1.00          1.01     1.00        1.00
+  XGB       1.02          1.02     1.00        1.00
+Stack       1.01          1.01     1.00        1.00
+
+[3] Performance by ICU admission within the first 24 h (point estimates, same predictions)
+         analysis                   stratum     n  events LR auroc LR auprc Stack auroc Stack auprc
+   with indicator ICU admission within 24 h   115      90    0.544    0.820       0.610       0.847
+   with indicator        no ICU within 24 h 19268     355    0.743    0.101       0.749       0.109
+without indicator ICU admission within 24 h   115      90    0.564    0.834       0.665       0.875
+without indicator        no ICU within 24 h 19268     355    0.686    0.097       0.742       0.106
+
+[4] Creatinine availability that the indicator encodes (eligible deliveries)
+    creatinine present: 20.5% overall | 19.5% without SMM | 62.9% with SMM
+    ICU within 24 h: 96.5% | no ICU within 24 h: 20.0%
+
+[5] Hyperparameters selected in the inner loops, with indicator (out of 15 outer fits per learner)
+learner             config  outer_fits
+     ET   depth=12,cw=None          12
+     ET    depth=8,cw=None           2
+     ET    depth=4,cw=None           1
+     LR      C=1.0,cw=None           7
+     LR      C=0.1,cw=None           6
+     LR C=0.01,cw=balanced           2
+     RF    depth=4,cw=None          11
+     RF    depth=8,cw=None           3
+     RF    depth=2,cw=None           1
+    XGB   depth=2,spw=sqrt           8
+    XGB      depth=1,spw=1           3
+    XGB      depth=2,spw=1           2
+    XGB   depth=1,spw=sqrt           2
+
+[5] Hyperparameters selected in the inner loops, without indicator (out of 15 outer fits per learner)
+learner           config  outer_fits
+     ET depth=12,cw=None          14
+     ET  depth=4,cw=None           1
+     LR    C=0.1,cw=None          15
+     RF  depth=8,cw=None           9
+     RF  depth=4,cw=None           5
+     RF  depth=2,cw=None           1
+    XGB depth=2,spw=sqrt          10
+    XGB    depth=1,spw=1           4
+    XGB depth=1,spw=sqrt           1

@@ -1,0 +1,99 @@
+==============================================================================================================
+ANALYSIS label_ge2: 19383 admissions, 13710 patients, 129 events (0.67%), numeric=3, binary=1, categorical=5
+Repeats=3, outer folds=5, inner folds=3, bootstrap B=300, QUICK=False
+==============================================================================================================
+
+[0] Patients per outer partition (repeat 1 shown; every split verified to share no patient between training and test)
+ fold  train_adm  train_pat  train_events  train_event_pat  test_adm  test_pat  test_events  test_event_pat  shared_patients
+    1      15497      10967           106              105      3886      2743           23              23                0
+    2      15479      10969           108              107      3904      2741           21              21                0
+    3      15563      10966           101              101      3820      2744           28              27                0
+    4      15486      10970           103              102      3897      2740           26              26                0
+    5      15507      10968            98               97      3876      2742           31              31                0
+    Across all 15 splits: test patients per fold 2739-2745, event-bearing test patients per fold 18-31, patients present on both sides: 0
+
+[1] Discrimination and overall accuracy (mean over repeats; 95% cluster-bootstrap CI)
+    prevalence = 0.0067  (AUPRC of a non-informative model equals the prevalence)
+    model               auroc               auprc                     brier sd_auroc_repeats sd_auprc_repeats
+       LR 0.840 (0.802-0.879) 0.067 (0.044-0.115) 0.00644 (0.00542-0.00745)           0.0031           0.0058
+       RF 0.836 (0.800-0.874) 0.065 (0.045-0.103) 0.00643 (0.00541-0.00743)           0.0115           0.0068
+       ET 0.832 (0.791-0.872) 0.080 (0.052-0.125) 0.00637 (0.00536-0.00742)           0.0023           0.0070
+      XGB 0.837 (0.799-0.880) 0.069 (0.046-0.116) 0.00644 (0.00540-0.00742)           0.0038           0.0062
+    Stack 0.848 (0.814-0.884) 0.081 (0.053-0.130) 0.00637 (0.00535-0.00737)           0.0040           0.0082
+Stack_raw               0.848               0.078                   0.00637           0.0034           0.0076
+
+[2] Calibration (slope ideal 1; calibration-in-the-large ideal 0; O/E ideal 1; ECE with 10 quantile bins)
+    model            slope               citl               oe                    ece
+       LR 1.00 (0.89-1.14) -0.01 (-0.18-0.15) 0.99 (0.85-1.15) 0.0010 (0.0010-0.0025)
+       RF 1.00 (0.89-1.12) -0.04 (-0.21-0.12) 0.96 (0.81-1.13) 0.0012 (0.0012-0.0023)
+       ET 1.04 (0.91-1.18) -0.02 (-0.19-0.14) 0.98 (0.83-1.14) 0.0010 (0.0011-0.0022)
+      XGB 1.03 (0.92-1.16) -0.03 (-0.20-0.13) 0.97 (0.83-1.13) 0.0015 (0.0013-0.0028)
+    Stack 1.04 (0.92-1.17) -0.01 (-0.18-0.15) 0.99 (0.84-1.15) 0.0010 (0.0010-0.0024)
+Stack_raw             1.03              -0.02             0.98                 0.0011
+
+[3] Paired differences (same bootstrap samples); the last row compares the ensemble with XGBoost
+comparison (first minus second)                 auroc                 auprc                        brier
+                        RF - LR -0.003 (-0.020-0.015) -0.002 (-0.020-0.014)  -0.00001 (-0.00011-0.00009)
+                        ET - LR -0.008 (-0.026-0.011) +0.012 (-0.011-0.033)  -0.00007 (-0.00019-0.00005)
+                       XGB - LR -0.003 (-0.016-0.011) +0.001 (-0.010-0.018)  -0.00001 (-0.00007-0.00005)
+                     Stack - LR +0.008 (-0.002-0.020)  +0.013 (0.002-0.024) -0.00007 (-0.00014--0.00002)
+                    Stack - XGB  +0.011 (0.001-0.020) +0.012 (-0.000-0.023) -0.00006 (-0.00013--0.00001)
+
+[4] Events captured among the 5% / 10% of admissions with the highest predicted risk
+model          sens_top5% ppv_top5%         sens_top10% ppv_top10%
+   LR 0.388 (0.310-0.470)     0.052 0.568 (0.492-0.655)      0.038
+   RF 0.406 (0.332-0.478)     0.054 0.535 (0.457-0.610)      0.036
+   ET 0.413 (0.350-0.493)     0.055 0.543 (0.471-0.616)      0.036
+  XGB 0.403 (0.329-0.479)     0.054 0.589 (0.515-0.664)      0.039
+Stack 0.424 (0.353-0.503)     0.056 0.574 (0.499-0.654)      0.038
+
+[5] Net benefit (decision curve) at the stated threshold probabilities
+ strategy  pt=0.005  pt=0.01  pt=0.02  pt=0.03  pt=0.05   pt=0.1  pt=0.15   pt=0.2
+       LR   0.00388  0.00287  0.00157  0.00108  0.00051  0.00029  0.00020  0.00012
+       RF   0.00398  0.00296  0.00175  0.00131  0.00071  0.00027  0.00007 -0.00003
+       ET   0.00398  0.00304  0.00185  0.00142  0.00079  0.00024  0.00016  0.00008
+      XGB   0.00394  0.00306  0.00175  0.00117  0.00064  0.00022  0.00012  0.00005
+    Stack   0.00397  0.00305  0.00195  0.00135  0.00089  0.00023  0.00017  0.00015
+ TreatAll   0.00166 -0.00338 -0.01362 -0.02407 -0.04563 -0.10372 -0.16864 -0.24168
+TreatNone   0.00000  0.00000  0.00000  0.00000  0.00000  0.00000  0.00000  0.00000
+    Paired net-benefit differences:
+ comparison                    pt=0.005                     pt=0.01                     pt=0.02                     pt=0.03                     pt=0.05                      pt=0.1
+ Stack - LR +0.00009 (-0.00011-0.00032) +0.00017 (-0.00003-0.00042)  +0.00038 (0.00010-0.00072)  +0.00026 (0.00000-0.00055)  +0.00038 (0.00010-0.00075) -0.00006 (-0.00017-0.00001)
+    RF - LR +0.00011 (-0.00016-0.00041) +0.00009 (-0.00024-0.00048) +0.00018 (-0.00024-0.00058) +0.00022 (-0.00010-0.00056) +0.00020 (-0.00006-0.00060) -0.00002 (-0.00024-0.00023)
+    ET - LR +0.00010 (-0.00017-0.00041) +0.00016 (-0.00009-0.00054) +0.00028 (-0.00009-0.00067) +0.00034 (-0.00005-0.00069) +0.00027 (-0.00004-0.00064) -0.00005 (-0.00030-0.00020)
+   XGB - LR +0.00006 (-0.00017-0.00029) +0.00019 (-0.00004-0.00048) +0.00018 (-0.00014-0.00051) +0.00009 (-0.00021-0.00035) +0.00013 (-0.00010-0.00038) -0.00007 (-0.00020-0.00006)
+Stack - XGB +0.00004 (-0.00011-0.00017) -0.00001 (-0.00017-0.00016) +0.00020 (-0.00005-0.00045) +0.00017 (-0.00004-0.00044) +0.00025 (-0.00003-0.00054) +0.00000 (-0.00012-0.00011)
+
+[8] Calibration by decile of predicted risk (outer-test predictions; mean over repeats)
+ decile    n  LR_pred  LR_obs  Stack_pred  Stack_obs
+      1 1940   0.0008  0.0002      0.0010     0.0003
+      2 1939   0.0014  0.0010      0.0015     0.0005
+      3 1943   0.0019  0.0010      0.0018     0.0009
+      4 1933   0.0023  0.0022      0.0021     0.0021
+      5 1942   0.0027  0.0021      0.0023     0.0021
+      6 1934   0.0033  0.0024      0.0027     0.0028
+      7 1938   0.0041  0.0040      0.0034     0.0040
+      8 1938   0.0060  0.0055      0.0056     0.0041
+      9 1938   0.0103  0.0103      0.0109     0.0117
+     10 1939   0.0345  0.0378      0.0359     0.0382
+
+[7] Hyperparameters selected in the inner loops (out of 15 outer fits per learner)
+learner                         config  outer_fits
+     ET  depth=4,cw=balanced_subsample           7
+     ET  depth=8,cw=balanced_subsample           4
+     ET                depth=8,cw=None           2
+     ET                depth=4,cw=None           1
+     ET depth=12,cw=balanced_subsample           1
+     LR                  C=1.0,cw=None           9
+     LR              C=1.0,cw=balanced           3
+     LR             C=0.01,cw=balanced           2
+     LR                  C=0.1,cw=None           1
+     RF  depth=4,cw=balanced_subsample           4
+     RF                depth=4,cw=None           4
+     RF                depth=8,cw=None           3
+     RF                depth=2,cw=None           2
+     RF  depth=2,cw=balanced_subsample           1
+     RF  depth=8,cw=balanced_subsample           1
+    XGB               depth=1,spw=sqrt          10
+    XGB               depth=2,spw=sqrt           4
+    XGB               depth=4,spw=sqrt           1
