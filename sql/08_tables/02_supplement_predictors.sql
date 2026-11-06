@@ -2,7 +2,7 @@
 -- 08_tables / 02_supplement_predictors.sql
 -- Supplement 2: predictor dictionary and availability (% with a value in the window)
 -- for each predictor, overall and by SMM, ICU admission before 24 h and ICD version.
--- Framework: E7 Predictors; answers reviewer comments R1-7 and R2-20.
+-- Framework: E7 Predictors; availability of each predictor (Supplement 2).
 -- ============================================================================
 -- Population: eligible delivery hospitalizations (19,383). Window: first value from
 -- 24 h before to 24 h after admission; values outside the plausibility limits of the

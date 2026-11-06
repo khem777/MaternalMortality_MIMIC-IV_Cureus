@@ -2,7 +2,7 @@
 -- 08_tables / 02_supplement_predictors_es.sql
 -- Suplemento 2: diccionario de predictores y disponibilidad (% con valor en la ventana)
 -- por predictor, en total y por SMM, ingreso a UCI antes de 24 h y versión de la CIE.
--- Framework: E7 Predictores; responde a los comentarios R1-7 y R2-20 de los revisores.
+-- Framework: E7 Predictores; disponibilidad de cada predictor (Suplemento 2).
 -- ============================================================================
 -- Population: eligible delivery hospitalizations (19,383). Window: first value from
 -- 24 h before to 24 h after admission; values outside the plausibility limits of the
