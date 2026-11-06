@@ -2,6 +2,7 @@
 -- 05_predictors / 02_dictionary_missingness.sql
 -- Final predictor dictionary and missingness tables
 --
+-- Framework: E7 Predictors: dictionary, coverage rule, plausibility limits and missingness indicators.
 -- ============================================================================
 -- Why: the analysis needs a predictor dictionary (source table, item id,
 --   units, window), the percentage of missing values per predictor and outcome,

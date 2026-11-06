@@ -1,5 +1,6 @@
 -- ============================================================================
 -- Conjunto de datos listo para análisis (modelo de mortalidad): mimiciv.cohort_maternal_dataset
+-- Framework: E7 Predictores de la primera versión (reemplazado por sql/05_predictors; no lo usan los modelos actuales).
 -- ============================================================================
 -- Una fila por admisión de mimiciv.cohort_maternal, con atributos administrativos,
 -- el desenlace y el valor DISPONIBLE MÁS TEMPRANO de 27 mediciones de signos / laboratorio

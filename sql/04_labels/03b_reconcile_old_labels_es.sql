@@ -1,6 +1,7 @@
 -- ============================================================================
 -- 04_labels / 03b_reconcile_old_labels_es.sql
 -- Conciliar la etiqueta de SMM del conjunto de datos v1 con la vista original
+-- Framework: E4 Auditoría de conteos: conciliación de la etiqueta de la primera versión con la actual.
 -- ============================================================================
 -- Por qué: antes de reportar el cambio "de 475 a 848", las 475 admisiones con SMM
 --   del conjunto de datos v1 (mimiciv.cohort_smm_dataset, outcome_smm = 1) deben

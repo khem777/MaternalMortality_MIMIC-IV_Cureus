@@ -1,6 +1,7 @@
 -- ============================================================================
 -- 04_labels / 01_smm_codes_official_es.sql
 -- Catálogo oficial de códigos de SMM de los CDC (ICD-9-CM + ICD-10-CM/PCS) -- v2
+-- Framework: E3 Definición del desenlace: lista oficial de códigos de los CDC (ficha), aplicada en la fuente (adaptador).
 -- ============================================================================
 -- Propósito:
 --   * El catálogo original (03_cohort_smm/smm_cohort_es.sql) se desviaba de la

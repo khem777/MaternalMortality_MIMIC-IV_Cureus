@@ -1,5 +1,6 @@
 -- ============================================================================
 -- COUNT AUDIT, PART 2 -- READ-ONLY
+-- Framework: E4 Count audit, part 2; reference counts for gate P1.
 -- ============================================================================
 -- Follow-up to audit_counts.sql after the first results (Q1-Q11). Same rules:
 -- only temporary tables + SELECTs, aggregated output, never publish subject_id/hadm_id.

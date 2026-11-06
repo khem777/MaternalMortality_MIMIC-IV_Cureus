@@ -1,0 +1,22 @@
+GATE P3 (RILEY CRITERIA) FOR THE OUTCOME OF RETURN R2 (QUICK=False)
+R2_CS observed = mean over repeats of the Cox-Snell R2 of the out-of-fold logistic regression predictions
+
+main (label y): n=19383, events=445, prevalence=0.02296, candidate parameters P=32, EPP=13.91
+               R2_CS scenario  R2_CS max R2_CS n shrinkage n optimism n risk(+-0.05) n risk(+-0.01) n required events required  available n  available events max P supported (n,R2)
+observed (cross-validated LR) 0.0311    0.1964        9112       3191             34            862       9112             209        19383               445                   68.1
+  -> gate P3 passes: 19383 admissions available
+
+escalation (label y_esc): n=19268, events=101, prevalence=0.00524, candidate parameters P=32, EPP=3.16
+               R2_CS scenario  R2_CS max R2_CS n shrinkage n optimism n risk(+-0.05) n risk(+-0.01) n required events required  available n  available events max P supported (n,R2)
+observed (cross-validated LR) 0.0077    0.0634       37098      10038              8            200      37098             194        19268               101                   16.6
+  -> gate P3 does NOT pass: 19268 admissions available
+
+escalation_labs (label y_esc): n=19268, events=101, prevalence=0.00524, candidate parameters P=54, EPP=1.87
+               R2_CS scenario  R2_CS max R2_CS n shrinkage n optimism n risk(+-0.05) n risk(+-0.01) n required events required  available n  available events max P supported (n,R2)
+observed (cross-validated LR) 0.0091    0.0634       53100      16928              8            200      53100             278        19268               101                   19.6
+  -> gate P3 does NOT pass: 19268 admissions available
+
+escalation_landmark (label y_esc): n=19198, events=90, prevalence=0.00469, candidate parameters P=32, EPP=2.81
+               R2_CS scenario  R2_CS max R2_CS n shrinkage n optimism n risk(+-0.05) n risk(+-0.01) n required events required  available n  available events max P supported (n,R2)
+observed (cross-validated LR) 0.0070    0.0579       41188      11001              7            179      41188             193        19198                90                   14.9
+  -> gate P3 does NOT pass: 19198 admissions available

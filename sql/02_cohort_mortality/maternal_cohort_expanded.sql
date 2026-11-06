@@ -1,5 +1,6 @@
 -- ============================================================================
 -- STATUS (2026-10-25): obstetric cohort of the first version of the analysis (v1)
+-- Framework: E2 Universe and population: obstetric universe (adapter). Kept from the first version; no position rule.
 -- ============================================================================
 -- The header below was written before this script was run. It was later run on
 -- the local database: the v1 manuscript (25,736 obstetric admissions,

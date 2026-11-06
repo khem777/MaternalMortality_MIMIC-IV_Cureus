@@ -1,6 +1,7 @@
 -- ============================================================================
 -- 04_labels / 03b_reconcile_old_labels.sql
 -- Reconcile the SMM label of the v1 dataset with the original view
+-- Framework: E4 Count audit: reconciliation of the first-version label with the current one.
 -- ============================================================================
 -- Why: before reporting the change "from 475 to 848", the 475 SMM admissions
 --   of the v1 dataset (mimiciv.cohort_smm_dataset, outcome_smm = 1) must be

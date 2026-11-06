@@ -1,5 +1,6 @@
 -- ============================================================================
 -- AUDITORÍA DE CONTEOS, PARTE 2 -- SOLO LECTURA
+-- Framework: E4 Auditoría de conteos, parte 2; conteos de referencia para la puerta P1.
 -- ============================================================================
 -- Seguimiento de audit_counts_es.sql tras los primeros resultados (Q1-Q11). Mismas reglas:
 -- solo tablas temporales + SELECT, salida agregada, nunca publicar subject_id/hadm_id.

@@ -1,5 +1,6 @@
 -- ============================================================================
 -- ASSIGN EXPERT DIAGNOSTIC GROUPS + PROPAGATE TO gdg_m01..gdg_m28
+-- Framework: E7 of the first version: discharge-diagnosis groups. Removed at gate P2 (information after the prediction point).
 -- ============================================================================
 -- PREREQUISITE: run maternal_diagnoses_group_load.sql first (creates and
 -- populates mimiciv.maternal_diagnoses_group_catalog and

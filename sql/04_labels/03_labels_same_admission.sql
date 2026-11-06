@@ -1,6 +1,7 @@
 -- ============================================================================
 -- 04_labels / 03_labels_same_admission.sql
 -- Admission-level labels for the revised analysis (both models)
+-- Framework: E3 Outcome definition: admission-level labels (contract columns label_main and alternatives).
 -- ============================================================================
 -- Purpose (decisions D1, D4(a), D5(a)):
 --   * Model A (mortality): label = death DURING THE SAME ADMISSION

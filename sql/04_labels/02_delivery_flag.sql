@@ -1,6 +1,7 @@
 -- ============================================================================
 -- 04_labels / 02_delivery_flag.sql
 -- Delivery-hospitalization flag (ICD-9-CM + ICD-10-CM/PCS + optional MS-DRG)
+-- Framework: E2 Universe and population: delivery hospitalizations (population rule of the outcome card; codes in the adapter).
 -- ============================================================================
 -- Purpose:
 --   The original flag (smm_cohort.sql) used ICD-10 Z37/O80/O82 only, so

@@ -1,6 +1,7 @@
 -- ============================================================================
 -- 04_labels / 04_cohort_obstetric_flags.sql
 -- Diagnosis-position rule and cohort definition
+-- Framework: E2 Universe and population: diagnosis-position rule and cohort definition (decision recorded in the log).
 -- ============================================================================
 -- Background: the v1 manuscript described the cohort as admissions with an
 --   obstetric diagnosis in position <= 4, but the SQL that built both datasets has NO

@@ -1,6 +1,7 @@
 -- ============================================================================
 -- 04_labels / 05_death_horizon_counts.sql
 -- How many deaths would a fixed follow-up horizon add? 
+-- Framework: E3 and gate P3: maternal death (ladder rung 1) with fixed follow-up horizons; feasibility counts.
 -- ============================================================================
 -- Question: with the same-admission label there are 10 deaths (4 in delivery
 --   hospitalizations).  A later-death outcome needs

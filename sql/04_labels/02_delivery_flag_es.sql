@@ -1,6 +1,7 @@
 -- ============================================================================
 -- 04_labels / 02_delivery_flag_es.sql
 -- Bandera de hospitalización de parto (ICD-9-CM + ICD-10-CM/PCS + MS-DRG opcional)
+-- Framework: E2 Universo y población: hospitalizaciones de parto (regla de población de la ficha; códigos en el adaptador).
 -- ============================================================================
 -- Propósito:
 --   La bandera original (smm_cohort_es.sql) usaba solo ICD-10 Z37/O80/O82, por lo que

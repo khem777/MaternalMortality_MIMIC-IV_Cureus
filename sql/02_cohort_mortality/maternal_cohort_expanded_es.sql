@@ -1,5 +1,6 @@
 -- ============================================================================
 -- ESTADO (2026-10-25): cohorte obstétrica de la primera versión del análisis (v1)
+-- Framework: E2 Universo y población: universo obstétrico (adaptador). Se conserva de la primera versión; sin regla de posición.
 -- ============================================================================
 -- El encabezado siguiente se escribió antes de ejecutar este script. Posteriormente se ejecutó en
 -- la base de datos local: el manuscrito v1 (25,736 admisiones obstétricas,

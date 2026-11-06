@@ -1,0 +1,5 @@
+CRITERION C3 FOR THE EXTENDED LABORATORY MODEL (QUICK=False); bootstrap B=300
+model  aki_lab_incident_labs events aki_lab_incident_labs auroc  aki_lab_incident_tested_labs events aki_lab_incident_tested_labs auroc auroc drop      C3
+   LR                           202         0.854 (0.827-0.876)                                  165                0.623 (0.580-0.670)     +0.231 not met
+  XGB                           202         0.861 (0.837-0.883)                                  165                0.643 (0.601-0.685)     +0.218 not met
+Stack                           202         0.860 (0.835-0.882)                                  165                0.649 (0.608-0.689)     +0.211 not met

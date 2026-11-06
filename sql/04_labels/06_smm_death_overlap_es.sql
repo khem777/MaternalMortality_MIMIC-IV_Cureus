@@ -2,6 +2,7 @@
 -- 04_labels / 06_smm_death_overlap_es.sql
 -- Solapamiento entre la morbilidad materna grave (etiqueta revisada) y la muerte en la
 -- misma admisión
+-- Framework: E3 y E4: solapamiento entre SMM (peldaño 2) y muerte materna (peldaño 1) de la escalera de desenlaces.
 -- ============================================================================
 -- Por qué: para describir cómo se relaciona la morbilidad materna grave (SMM) con
 --   la mortalidad materna.  El conteo previo (Q10) usó la etiqueta SMM v1.

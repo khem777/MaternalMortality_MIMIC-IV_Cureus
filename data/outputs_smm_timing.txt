@@ -15,12 +15,13 @@ D. no procedure indicator (diagnosis codes only; no time)                       
     Reading: at least 59 SMM admissions (13.3%) had a procedure indicator certainly before T; 25 more (5.6%) cannot be ordered;
     42 (9.4%) have procedure indicators only after T; 319 (71.7%) rest on diagnosis codes alone and cannot be placed in time.
 
-[2] Procedure-based indicators: admissions by timing of the indicator (an admission can appear in several columns)
-timing                        before  ambiguous  after  admissions with the indicator
-indicator_name                                                                       
-Hysterectomy                      38         13     28                             79
-Ventilation                       27         12     21                             60
-Conversion of cardiac rhythm       0          3      3                              6
+[2] Procedure-based indicators: admissions by timing of the indicator (an admission with the same indicator on different days can appear in
+    several of the first three columns, so they need not add up to the last column, which counts each admission once)
+timing                        before  ambiguous  after  distinct admissions with the indicator
+indicator_name                                                                                
+Hysterectomy                      38         13     28                                      79
+Ventilation                       27         12     21                                      59
+Conversion of cardiac rhythm       0          3      3                                       6
 
 ==============================================================================================================
 CONSISTENCY CHECKS

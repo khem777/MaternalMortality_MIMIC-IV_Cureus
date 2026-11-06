@@ -1,6 +1,7 @@
 -- ============================================================================
 -- 04_labels / 01_smm_codes_official.sql
 -- Official CDC SMM code catalogue (ICD-9-CM + ICD-10-CM/PCS) -- v2
+-- Framework: E3 Outcome definition: official CDC code list (outcome card), matched in the source (adapter).
 -- ============================================================================
 -- Purpose:
 --   * The original catalogue (03_cohort_smm/smm_cohort.sql) deviated from

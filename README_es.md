@@ -68,6 +68,38 @@ Cada script SQL tiene una versión en español con el mismo nombre más el sufij
 
 Las salidas agregadas `data/outputs_*.txt` (solo conteos y métricas; sin identificadores ni filas a nivel de paciente) se publican con el código. Son, una por análisis: `main` (análisis principal), `no_indicator`, `resampling`, `era_temporal`, y los análisis de sensibilidad `first_admission`, `any_obstetric`, `icd10_only`, `label_ge2`, `no_icu_24h`, `labs_extended`, `icu_vars`, `excl_renal_only` y `smm_timing`, más `modelA` (factibilidad de la muerte).
 
+## Mapa del framework
+
+El análisis sigue un framework por etapas para modelos de predicción clínica: 11 etapas (E1 a E11), cuatro puertas (P1 a P4) y cuatro
+retornos (R1 a R4). La puerta P4 clasifica un modelo como predictor, identificador temprano o ninguno con cuatro criterios: C1 eventos ya
+presentes en el punto de predicción, C2 desenlace con tiempo, C3 sesgo de detección, C4 estabilidad en el tiempo. El encabezado de cada
+script y notebook indica la etapa que atiende (`-- Framework:` en SQL, una línea **Framework** bajo cada sección de los notebooks). Los números
+de decisión (D1 a D22) de esas líneas siguen el libro de decisiones del framework; algunos comentarios antiguos usan la numeración anterior del plan.
+
+| Etapa, puerta o retorno | Qué hace | Scripts y notebooks |
+|---|---|---|
+| E1 Gobernanza y configuración | Fuente de datos, ajustes fijos, conteos de referencia | `sql/01_load_mimic_iv_schema/`; sección 1 de cada notebook |
+| E2 Universo y población | Universo obstétrico, hospitalizaciones de parto | `sql/02_cohort_mortality/maternal_cohort_expanded_es.sql`; `sql/04_labels/02_delivery_flag_es.sql`, `04_cohort_obstetric_flags_es.sql` |
+| E3 Definición del desenlace | Indicadores de SMM de los CDC, etiquetas, momento del evento | `sql/04_labels/01_smm_codes_official_es.sql`, `03_labels_same_admission_es.sql`; `sql/07_timing_audit/01_timing_flags_v3.sql`, `02_phenotype_audit_v3.sql`; notebook 07 |
+| E4 Auditoría de conteos | Conteos de referencia, conciliación, clases temporales | `sql/06_audit_counts/`; `sql/04_labels/03b_reconcile_old_labels_es.sql`, `06_smm_death_overlap_es.sql`; notebook 07 |
+| P1 | Población, unidad y definición fijas; conteos reproducibles | verificación `EXPECTED` en cada notebook |
+| E5 Unidad de análisis y solapamiento | Hospitalización de parto; paciente como unidad de agrupación | notebook 01 |
+| E6 Punto de predicción y ventana | Tiempo cero, punto a las 24 h, elegibilidad, regla landmark | `sql/05_predictors/01_predictors_24h_es.sql`; sección 3 de los notebooks 02 a 08 |
+| P2 | Nada posterior al punto de predicción; particiones agrupadas | verificaciones en las funciones de validación cruzada |
+| E7 Predictores | Diccionario, regla de cobertura, límites de plausibilidad, indicadores de faltante | `sql/05_predictors/`; notebooks 04 y 05 (decisiones de predictores) |
+| P3 | Tamaño mínimo de muestra (criterios de Riley) | notebook 02, secciones 7 y 9 |
+| R1 | Muerte materna no viable: solo viabilidad, siguiente peldaño (SMM) | `sql/02_cohort_mortality/maternal_cohort_es.sql`; `sql/04_labels/05_death_horizon_counts_es.sql`; notebook 02, sección 9 |
+| E8 Modelado, validación y métricas | Validación anidada agrupada por paciente, ensamble, recalibración, bootstrap | notebook 02 (modelo principal); notebook 03 (desbalance de clases) |
+| E9 Sensibilidad y robustez | Criterios C1 a C4 y definiciones alternativas | notebook 08 (C1, C2, C3), notebook 09 (C4), notebooks 05 y 06 |
+| P4 | Clasificación: predictor, identificador temprano o ninguno | reportes de los notebooks 02, 08 y 09 |
+| R2 | Desenlace fechado después del punto de predicción: escalamiento de la atención | `sql/07_timing_audit/03_escalation_counts.sql`, `04_escalation_label_es.sql`; notebook 08 sección 11; notebook 09 `cut2017_escalation` |
+| R4 | Más predictores: laboratorios ampliados | notebook 08 secciones 10 y 13; notebook 09 `cut2017_landmark_labs`; `data/outputs_labs_extended.txt` (notebook 02) |
+| E10 De la clasificación a la acción | Subgrupos y equidad | notebook 08, sección 12 |
+| E11 Reporte | Reportes agregados y figuras | `data/outputs_*.txt`; `scripts/fig_cohort_funnel.py` |
+
+Los scripts de la primera versión del análisis (`sql/02_cohort_mortality/` salvo `maternal_cohort_expanded_es.sql`, y `sql/03_cohort_smm/`)
+se conservan por trazabilidad; los grupos de diagnósticos de egreso que construyen se retiraron en la puerta P2.
+
 ## Instalación y ejecución
 
 1. **Obtenga acceso credencializado a MIMIC-IV** (ver [Acceso a los datos](#acceso-a-los-datos)) y descargue la exportación en CSV. El manuscrito usa **MIMIC-IV v3.1** (descargada el 18 de abril de 2025).

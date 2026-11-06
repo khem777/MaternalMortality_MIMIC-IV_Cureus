@@ -1,5 +1,6 @@
 -- ============================================================================
 -- ASIGNAR GRUPOS DIAGNÓSTICOS DE EXPERTOS + PROPAGAR A gdg_m01..gdg_m28
+-- Framework: E7 de la primera versión: grupos de diagnósticos de egreso. Retirados en la puerta P2 (información posterior al punto de predicción).
 -- ============================================================================
 -- REQUISITO PREVIO: ejecutar primero maternal_diagnoses_group_load_es.sql (crea y
 -- puebla mimiciv.maternal_diagnoses_group_catalog y

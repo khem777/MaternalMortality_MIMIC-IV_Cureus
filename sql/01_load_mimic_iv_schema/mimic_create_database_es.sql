@@ -1,3 +1,4 @@
+-- Framework: E1 Gobernanza y configuración (montaje técnico de la fuente de datos; base del adaptador de MIMIC-IV).
 CREATE SCHEMA IF NOT EXISTS mimiciv;
 SET search_path TO mimiciv;
 

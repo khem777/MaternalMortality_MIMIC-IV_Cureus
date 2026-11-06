@@ -1,5 +1,6 @@
 -- ============================================================================
 -- STATUS (2026-10-25): this script defines the labels of the first version of the analysis (v1)
+-- Framework: E3 Outcome definition of the first version (superseded by sql/04_labels/01_smm_codes_official.sql).
 -- ============================================================================
 -- It was run on the local database and produced the 475 SMM admissions of the
 -- v1 version. Two limitations of that version are known and fixed in the

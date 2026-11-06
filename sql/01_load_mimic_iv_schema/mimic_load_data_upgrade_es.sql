@@ -1,3 +1,4 @@
+-- Framework: E1 Gobernanza y configuración (carga de la fuente de datos; adaptador de MIMIC-IV).
 -- COPY del lado del servidor: el servidor PostgreSQL lee los archivos CSV desde /mimic_csv
 -- (la carpeta del host MIMICIV_CSV_DIR montada por docker-compose.yml, con hosp/ e icu/ en su interior).
 -- Ejecútelo como superusuario (el usuario POSTGRES predeterminado del contenedor lo es).

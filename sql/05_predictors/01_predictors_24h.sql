@@ -2,6 +2,7 @@
 -- 05_predictors / 01_predictors_24h.sql
 -- Predictors restricted to the first 24 hours of the hospitalization
 --
+-- Framework: E6 Prediction point and window (time zero, prediction time, eligibility) and E7 Predictors: builds the contract table.
 -- ============================================================================
 -- Why: in the v1 datasets (sql/03_cohort_smm/smm_dataset.sql and the
 --   equivalent mortality dataset) every laboratory value and chart value is the

@@ -2,6 +2,7 @@
 -- 07_timing_audit / 01_timing_flags_v3.sql
 -- Timing of SMM evidence relative to the prediction point (T = admittime + 24 h)
 -- and an approximate calendar-year interval per admission.
+-- Framework: E3 (event timing: contract column label_timing) and E4 (timing classes); approximate year interval for criterion C4 (contract column period).
 -- ============================================================================
 -- Questions addressed:
 --   (1) SMM is defined for the whole admission; part of the events precede T.

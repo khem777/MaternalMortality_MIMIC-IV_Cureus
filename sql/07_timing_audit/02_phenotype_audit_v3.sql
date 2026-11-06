@@ -1,6 +1,7 @@
 -- ============================================================================
 -- 07_timing_audit / 02_phenotype_audit_v3.sql
 -- Code-level audit of the SMM phenotype
+-- Framework: E3 and E4: code-level audit of the SMM phenotype.
 -- ============================================================================
 -- Questions answered (aggregates only, eligible delivery hospitalizations):
 --   A1  Which specific codes did each pattern actually match, and how many

@@ -2,6 +2,7 @@
 -- 05_predictors / 01_predictors_24h_es.sql
 -- Predictores restringidos a las primeras 24 horas de la hospitalización
 --
+-- Framework: E6 Punto de predicción y ventana (tiempo cero, punto de predicción, elegibilidad) y E7 Predictores: construye la tabla del contrato.
 -- ============================================================================
 -- Por qué: en los conjuntos de datos v1 (sql/03_cohort_smm/smm_dataset_es.sql y el
 --   conjunto de datos de mortalidad equivalente) cada valor de laboratorio y cada valor de chart es el

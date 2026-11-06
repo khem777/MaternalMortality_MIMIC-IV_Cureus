@@ -2,6 +2,7 @@
 -- 04_labels / 06_smm_death_overlap.sql
 -- Overlap between severe maternal morbidity (revised label) and death in the
 -- same admission
+-- Framework: E3 and E4: overlap between SMM (rung 2) and maternal death (rung 1) of the outcome ladder.
 -- ============================================================================
 -- Why: to describe how severe maternal morbidity (SMM) relates to
 --   maternal mortality.  The earlier count (Q10) used the v1 SMM label.

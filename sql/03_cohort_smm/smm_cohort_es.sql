@@ -1,5 +1,6 @@
 -- ============================================================================
 -- ESTADO (2026-10-25): este script define las etiquetas de la primera versión del análisis (v1)
+-- Framework: E3 Definición del desenlace de la primera versión (reemplazado por sql/04_labels/01_smm_codes_official_es.sql).
 -- ============================================================================
 -- Se ejecutó en la base de datos local y produjo las 475 admisiones con SMM de la
 -- versión v1. Se conocen dos limitaciones de esa versión, corregidas en la

@@ -1,6 +1,7 @@
 -- ============================================================================
 -- 04_labels / 05_death_horizon_counts_es.sql
 -- ¿Cuántas muertes agregaría un horizonte fijo de seguimiento? 
+-- Framework: E3 y puerta P3: muerte materna (peldaño 1) con horizontes fijos de seguimiento; conteos de viabilidad.
 -- ============================================================================
 -- Pregunta: con la etiqueta de la misma admisión hay 10 muertes (4 en hospitalizaciones de
 --   parto).  Un desenlace de muerte posterior requiere

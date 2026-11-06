@@ -2,6 +2,7 @@
 -- 05_predictors / 02_dictionary_missingness_es.sql
 -- Diccionario final de predictores y tablas de faltantes
 --
+-- Framework: E7 Predictores: diccionario, regla de cobertura, límites de plausibilidad e indicadores de faltante.
 -- ============================================================================
 -- Por qué: el análisis necesita un diccionario de predictores (tabla de origen, id de ítem,
 --   unidades, ventana), el porcentaje de valores faltantes por predictor y desenlace,

@@ -1,5 +1,6 @@
 -- ============================================================================
 -- Estadísticas de diagnósticos de la cohorte materna: mimiciv.cohort_maternal_diagnoses
+-- Framework: E7 de la primera versión: grupos de diagnósticos de egreso. Retirados en la puerta P2 (información posterior al punto de predicción).
 -- ============================================================================
 -- Una fila por código ICD distinto (icd_code, icd_version) entre los diagnósticos
 -- con seq_num <= 4 de las admisiones de mimiciv.cohort_maternal, con el número

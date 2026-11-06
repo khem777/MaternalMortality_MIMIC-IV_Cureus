@@ -1,5 +1,6 @@
 -- ============================================================================
 -- Cohorte materna (modelo de mortalidad): mimiciv.cohort_maternal
+-- Framework: E2 y E3, peldaño 1 de la escalera (muerte materna) de la primera versión. La muerte materna no pasó la puerta P3 (retorno R1).
 -- ============================================================================
 -- Una fila por admisión hospitalaria de una mujer de 12 a 55 años con al menos un
 -- diagnóstico obstétrico / relacionado con el embarazo.

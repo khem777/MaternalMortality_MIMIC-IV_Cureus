@@ -1,0 +1,19 @@
+ESCALATION AFTER T (RETURN R2) SUMMARY (QUICK=False); bootstrap B=300; counts below 10 shown as <10
+
+[1] Components of the composite (an admission can have several)
+           analysis admissions escalation icu_after vent_after smm_proc_after death_after with_smm_label
+         escalation      19268        101        90         38             40         <10             89
+    escalation_labs      19268        101        90         38             40         <10             89
+escalation_landmark      19198         90        79         30             38         <10             78
+
+[2] Discrimination and calibration; C2 = AUROC >= 0.75 and lower 95% limit >= 0.70
+           analysis model  events prevalence               auroc               auprc slope  O/E sens_top10  C2
+         escalation    LR     101     0.0052 0.779 (0.727-0.821) 0.052 (0.030-0.092)  1.05 0.99      0.465 met
+         escalation   XGB     101     0.0052 0.763 (0.709-0.808) 0.056 (0.031-0.094)  1.07 0.96      0.465 met
+         escalation Stack     101     0.0052 0.783 (0.731-0.828) 0.057 (0.032-0.100)  1.06 0.99      0.485 met
+    escalation_labs    LR     101     0.0052 0.793 (0.746-0.838) 0.068 (0.044-0.111)  1.10 1.01      0.518 met
+    escalation_labs   XGB     101     0.0052 0.793 (0.743-0.840) 0.073 (0.047-0.115)  1.02 0.97      0.521 met
+    escalation_labs Stack     101     0.0052 0.810 (0.763-0.853) 0.074 (0.048-0.115)  1.03 0.99      0.564 met
+escalation_landmark    LR      90     0.0047 0.772 (0.721-0.828) 0.050 (0.031-0.096)  1.01 0.98      0.485 met
+escalation_landmark   XGB      90     0.0047 0.761 (0.708-0.816) 0.055 (0.031-0.105)  1.05 0.96      0.485 met
+escalation_landmark Stack      90     0.0047 0.772 (0.719-0.829) 0.050 (0.031-0.092)  1.05 0.97      0.504 met

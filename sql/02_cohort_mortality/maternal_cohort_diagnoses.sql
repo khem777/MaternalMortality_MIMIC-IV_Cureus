@@ -1,5 +1,6 @@
 -- ============================================================================
 -- Diagnosis statistics of the maternal cohort: mimiciv.cohort_maternal_diagnoses
+-- Framework: E7 of the first version: discharge-diagnosis groups. Removed at gate P2 (information after the prediction point).
 -- ============================================================================
 -- One row per distinct ICD code (icd_code, icd_version) among the diagnoses
 -- with seq_num <= 4 of the admissions in mimiciv.cohort_maternal, with the number

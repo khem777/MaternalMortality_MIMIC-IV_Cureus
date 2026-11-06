@@ -1,5 +1,6 @@
 -- ============================================================================
 -- AUDITORÍA DE CONTEOS, PARTE 3 -- SOLO LECTURA
+-- Framework: E4 Auditoría de conteos, parte 3: dependencia de la etiqueta de las admisiones sin parto y del indicador renal.
 -- ============================================================================
 -- Seguimiento de Q15/Q16: el 47% de las admisiones con SMM NO son hospitalizaciones de parto y
 -- la insuficiencia renal aguda es el indicador más grande. Estas consultas miden cuánto depende la

@@ -1,5 +1,6 @@
 -- ============================================================================
 -- Modelo B (SMM / near-miss): build mimiciv.cohort_smm_dataset
+-- Framework: E7 Predictors of the first version (superseded by sql/05_predictors).
 -- ============================================================================
 -- Added 2026-10-08. Until now this table was only SKETCHED in the notebook
 -- (maternal_smm_models.ipynb, Section 2.8, with level K "omitted for

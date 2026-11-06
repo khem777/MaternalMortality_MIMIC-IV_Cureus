@@ -1,3 +1,4 @@
+-- Framework: E1 Gobernanza y configuración (índices de la fuente de datos; adaptador de MIMIC-IV).
 -------------
 -- ADMISSIONS
 -------------

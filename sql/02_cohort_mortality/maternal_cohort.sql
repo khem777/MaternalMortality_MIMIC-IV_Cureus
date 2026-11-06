@@ -1,5 +1,6 @@
 -- ============================================================================
 -- Maternal cohort (mortality model): mimiciv.cohort_maternal
+-- Framework: E2 and E3, ladder rung 1 (maternal death) of the first version. Maternal death did not pass gate P3 (return R1).
 -- ============================================================================
 -- One row per hospital admission of a woman aged 12-55 years with at least one
 -- obstetric / pregnancy-related diagnosis.

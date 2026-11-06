@@ -1,5 +1,6 @@
 -- ============================================================================
 -- COUNT AUDIT, PART 3 -- READ-ONLY
+-- Framework: E4 Count audit, part 3: dependence of the label on non-delivery admissions and on the renal indicator.
 -- ============================================================================
 -- Follow-up to Q15/Q16: 47% of the SMM admissions are NOT delivery hospitalizations and
 -- acute renal failure is the largest indicator. These queries measure how much the

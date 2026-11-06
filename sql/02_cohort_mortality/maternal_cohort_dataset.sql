@@ -1,5 +1,6 @@
 -- ============================================================================
 -- Analysis-ready dataset (mortality model): mimiciv.cohort_maternal_dataset
+-- Framework: E7 Predictors of the first version (superseded by sql/05_predictors; not used by the current models).
 -- ============================================================================
 -- One row per admission of mimiciv.cohort_maternal, with administrative
 -- attributes, the outcome, and the EARLIEST available value of 27 chart / lab

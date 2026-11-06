@@ -1,6 +1,7 @@
 -- ============================================================================
 -- 04_labels / 03_labels_same_admission_es.sql
 -- Etiquetas a nivel de admisión para el análisis revisado (ambos modelos)
+-- Framework: E3 Definición del desenlace: etiquetas por admisión (columnas label_main y alternativas del contrato).
 -- ============================================================================
 -- Propósito (decisiones D1, D4(a), D5(a)):
 --   * Modelo A (mortalidad): etiqueta = muerte DURANTE LA MISMA ADMISIÓN

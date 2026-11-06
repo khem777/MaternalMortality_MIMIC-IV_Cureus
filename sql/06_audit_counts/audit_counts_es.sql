@@ -1,5 +1,6 @@
 -- ============================================================================
 -- AUDITORÍA DE CONTEOS -- datos v1 frente a las definiciones actuales
+-- Framework: E4 Auditoría de conteos (primera versión frente a las definiciones actuales); conteos de referencia para la puerta P1.
 -- ============================================================================
 -- Propósito: medir, sobre los datos con los que se entrenaron los modelos v1, conteos
 -- que el manuscrito v1 no reportaba. SOLO LECTURA: únicamente

@@ -1,3 +1,4 @@
+-- Framework: E1 Governance and configuration (loading the data source; MIMIC-IV adapter).
 -- Server-side COPY: the CSV files are read by the PostgreSQL server from /mimic_csv
 -- (the host folder MIMICIV_CSV_DIR mounted by docker-compose.yml, with hosp/ and icu/ inside).
 -- Run it as a superuser (the default POSTGRES user of the container is one).

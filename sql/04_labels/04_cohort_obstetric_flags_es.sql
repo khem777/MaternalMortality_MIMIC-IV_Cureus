@@ -1,6 +1,7 @@
 -- ============================================================================
 -- 04_labels / 04_cohort_obstetric_flags_es.sql
 -- Regla de posición del diagnóstico y definición de la cohorte
+-- Framework: E2 Universo y población: regla de posición del diagnóstico y definición de la cohorte (decisión registrada en el libro).
 -- ============================================================================
 -- Antecedentes: el manuscrito v1 describía la cohorte como las admisiones con un
 --   diagnóstico obstétrico en posición <= 4, pero el SQL que construyó ambos conjuntos de datos

@@ -2,6 +2,7 @@
 -- 07_timing_audit / 03_escalation_counts.sql
 -- Candidate timed outcome: escalation of care AFTER the prediction point
 -- (T = admittime + 24 h), independent of laboratory testing.
+-- Framework: Return R2 (back to E3): counts of the candidate timed outcome, escalation of care after T.
 -- ============================================================================
 -- Components (each with its own time stamp):
 --   (e1) ICU admission with intime after T                (icustays.intime, exact time)
