@@ -1,0 +1,30 @@
+Q-S2 (sql/08_tables/02_supplement_predictors.sql): availability of each predictor, % of eligible delivery hospitalizations with a plausible value from 24 h before to 24 h after admission.
+Denominators: all 19,383; SMM 445 / no SMM 18,938; ICU before 24 h 115 / no 19,268; ICD-9 10,519 / ICD-10 8,864. "<10 in pair": a numerator between 1 and 9 in the pair, both cells hidden.
+variable	role	unit	source	plausible_low	plausible_high	pct_all	pct_smm	pct_no_smm	pct_icu_24h	pct_no_icu_24h	pct_icd9	pct_icd10
+gcs_eye_opening	ICU sensitivity only	score	chartevents (ICU)			0.6	19.8	0.1	98.3	0.0	0.6	0.6
+gcs_motor_response	ICU sensitivity only	score	chartevents (ICU)			0.6	19.8	0.1	98.3	0.0	0.6	0.6
+gcs_verbal_response	ICU sensitivity only	score	chartevents (ICU)			0.6	19.8	0.1	98.3	0.0	0.6	0.6
+heart_rate	ICU sensitivity only	beats/min	chartevents (ICU)			0.6	20.0	0.1	99.1	0.0	0.6	0.6
+height	ICU sensitivity only	cm	chartevents (ICU)			0.2	<10 in pair	<10 in pair	38.3	0.0	0.2	0.3
+o2_saturation	ICU sensitivity only	%	chartevents (ICU)			0.6	20.0	0.1	99.1	0.0	0.6	0.6
+peep_set	ICU sensitivity only	cmH2O	chartevents (ICU)			0.3	<10 in pair	<10 in pair	51.3	0.0	0.3	0.3
+pressure_blood_diastolic	ICU sensitivity only	mmHg	chartevents (ICU)			0.5	15.5	0.1	80.0	0.0	0.5	0.5
+pressure_blood_mean	ICU sensitivity only	mmHg	chartevents (ICU)			0.5	15.5	0.1	80.0	0.0	0.5	0.5
+pressure_blood_systolic	ICU sensitivity only	mmHg	chartevents (ICU)			0.5	15.5	0.1	80.0	0.0	0.5	0.5
+respiratory_rate	ICU sensitivity only	breaths/min	chartevents (ICU)			0.6	20.0	0.1	99.1	0.0	0.6	0.6
+richmond_ras_scale	ICU sensitivity only	score	chartevents (ICU)			0.5	17.3	0.1	82.6	0.0	0.4	0.6
+temperature_fahrenheit	ICU sensitivity only	deg F	chartevents (ICU)			0.6	19.8	0.1	98.3	0.0	0.6	0.6
+weight_admission	ICU sensitivity only	kg	chartevents (ICU)			0.6	20.2	0.1	100.0	0.0	0.6	0.6
+anion_gap	laboratory sensitivity (coverage below threshold)	mEq/L	chartevents (ICU) or labevents			3.4	38.0	2.6	95.7	2.9	2.9	3.9
+bicarbonate	laboratory sensitivity (coverage below threshold)	mEq/L	chartevents (ICU) or labevents			3.4	38.0	2.6	95.7	2.9	2.9	3.9
+calcium_noionized	laboratory sensitivity (coverage below threshold)	mg/dL	chartevents (ICU) or labevents			2.7	35.7	1.9	94.8	2.2	2.2	3.4
+chloride	laboratory sensitivity (coverage below threshold)	mEq/L	chartevents (ICU) or labevents			3.5	38.2	2.7	95.7	2.9	3.1	4.0
+glucose	laboratory sensitivity (coverage below threshold)	mg/dL	chartevents (ICU) or labevents			3.9	39.3	3.1	95.7	3.4	3.6	4.3
+lactate	laboratory sensitivity (coverage below threshold)	mmol/L	chartevents (ICU) or labevents			0.8	21.6	0.3	73.0	0.4	0.7	1.0
+magnesium	laboratory sensitivity (coverage below threshold)	mg/dL	chartevents (ICU) or labevents			3.2	39.1	2.4	93.9	2.7	2.8	3.7
+phosphorus	laboratory sensitivity (coverage below threshold)	mg/dL	chartevents (ICU) or labevents			2.6	35.3	1.9	94.8	2.1	2.1	3.2
+potassium	laboratory sensitivity (coverage below threshold)	mEq/L	chartevents (ICU) or labevents			3.5	38.4	2.7	95.7	3.0	3.1	4.0
+sodium	laboratory sensitivity (coverage below threshold)	mEq/L	chartevents (ICU) or labevents			3.5	38.4	2.7	95.7	2.9	3.1	4.0
+hematocrit	laboratory sensitivity (redundant with hemoglobin, D12)	%	chartevents (ICU) or labevents	10.0	65.0	81.8	84.9	81.7	96.5	81.7	81.9	81.6
+creatinine	main model	mg/dL	chartevents (ICU) or labevents	0.1	20.0	20.5	62.9	19.5	96.5	20.0	17.8	23.6
+hemoglobin	main model	g/dL	chartevents (ICU) or labevents	3.0	20.0	81.6	84.9	81.6	96.5	81.5	81.8	81.5

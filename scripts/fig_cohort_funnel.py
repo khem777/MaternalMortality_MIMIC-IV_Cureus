@@ -17,11 +17,11 @@ import matplotlib.pyplot as plt
 STAGES = [  # label, admissions, SMM events, role
     ("Obstetric admissions (universe)",               25736, 848, ""),
     ("Delivery hospitalizations",                     19425, 447, ""),
-    ("Still in hospital at 24 h (eligible)",          19383, 445, "Full-label analysis"),
+    ("Still in hospital at 24 h (eligible)",          19383, 445, "Main analysis"),
     ("No ICU admission before 24 h",                  19268, 355, ""),
-    ("Landmark: no SMM evident at 24 h",              19198, 285, "Main analysis"),
-    ("Incident SMM, documented after 24 h",           19027, 114, "Sensitivity analysis"),
-    ("Incident SMM, strict",                          18996,  83, "Sensitivity analysis"),
+    ("Landmark: no SMM evident at 24 h",              19198, 285, "Criterion C1: landmark"),
+    ("Incident SMM, documented after 24 h",           19027, 114, "Criterion C2: documented incident"),
+    ("Incident SMM, strict",                          18996,  83, "Criterion C2: strict incident"),
 ]
 REASONS = [
     None,
@@ -32,7 +32,7 @@ REASONS = [
     "SMM without timed evidence",
     "another untimed SMM indicator",
 ]
-ESCALATION = ("Escalation of care after 24 h", 19268, 101, "Alternative timed outcome")
+ESCALATION = ("Escalation of care after 24 h", 19268, 101, "Return R2: timed outcome")
 
 GREY, ACCENT, INK, QUIET = "#b8b6ae", "#2f6db3", "#1f1f1f", "#6b6b6b"
 fmt = lambda v: f"{v:,}"
